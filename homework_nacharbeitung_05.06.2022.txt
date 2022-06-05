@@ -1,0 +1,100 @@
+//Practice homework for time complexity Analysis,  Notation Big O.
+//calculate complexity in best and worst case
+//create by Jana Metz
+
+//Notation:
+//best case time B(n)
+//worst case time W(n)
+
+-----------------------------------------------------------------------
+
+public static void test1(int n) {
+        if (n == 1)                        //cost = 1 time = 1 --> O(1)
+            return;                        //cost = 1 time = 1
+        for (int i = 1; i <= n; i++) {     //cost = 4 times = n --> O(n)
+            for (int j = 1; j <= n; j++) { //Внутренний цикл выполняется только один раз для оператора break.	
+                System.out.println("*");
+                break;
+            }
+        }
+    }
+}
+
+   //test1: B(n) = O(1)  and  W(n) = O(n)
+
+------------------------------------------------------------------------
+
+    public static void test2(int n) {
+        int a = 0;                          //cost = 1 time = 1
+        for (int i = 0; i < n; i++) {       //cost = 3 times = n
+            for (int j = n; j > i; j--) {   //cost = 3 times = n
+                a = a + i + j;              //cost = 3 times = 1
+            }
+        }
+    }
+   //test2: for O(n) * for = O(n) --> W(n) = O(n²)
+
+-------------------------------------------------------------------------
+
+    public static void test3(int n) {
+        int i, j, a = 0;                    //cost = 1 time = 1
+        for (i = n / 2; i <= n; i++) {      //cost = 5 times for внешний цикл = n/2 --> O(n)
+            for (j = 2; j <= n; j = j * 2) { // Внутренний цикл выполняется logn раз (2^k = n --> k = logn).
+                a = a + n / 2;// k во внутреннем цикле, n добавляется к k, logn раз, поскольку внутренний цикл выполняется logn раз
+            }
+        }
+    }
+   //test3: for внешний цикл O(n) * for Внутренний цикл O(log n) --> W(n) = O(n log n)
+
+-------------------------------------------------------------------------
+
+    public static void test4(int n){
+        int a = 0, i = n;//cost = 2 times = 2
+        while (i > 0) { //cost = 1 times = log n
+            a += i;
+            i /= 2; // В этом случае после каждой итерации значение i превращается в половину своего предыдущего значения --> O(log n)
+        }
+    }
+    //test4: while O(log n)  --> W(n) = (log n)
+
+-------------------------------------------------------------------------
+
+    public static void method1(int a, int b) {
+        while (a != b) {
+            if (a > b) {
+                a = a - b;
+            } else {
+                b = b - a;
+            }
+        }
+    }
+    //method1:          --> B(n) = O(1)
+    //method1: while O(n) --> W(n) = O(n)
+
+-------------------------------------------------------------------------
+
+    public static void method2(int n) {
+        for (int i = 0; i < n / 2; i++) {
+            for (int j = 1; j + n / 2 <= n; j++) {
+                for (int k = 1; k <= n; k = k * 2) {
+                    System.out.println("I am expert!");
+                }
+            }
+        }
+    }
+    //method2:                  B(n) = O(log n)
+    //method2:                  W(n) = O(n²)
+
+--------------------------------------------------------------------------
+
+    public static void method3(int n) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j = j + i) {
+                System.out.println("I am expert!");
+            }
+        }
+    }
+    //method3:                  B(n) = O(n log n)
+    //method3:                  W(n) =  O(n²)
+
+--------------------------------------------------------------------------
