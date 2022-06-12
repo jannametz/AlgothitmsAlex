@@ -1,0 +1,9 @@
+z(n) Anzahl der Züge
+z(n) = 2^n -1
+z(64) = 2^64 -1
+Z(64) = 18 446 744 073 709 551 615 Züge Wenn jede Scheibe innerhalb einer
+Sekunde umgesetzt wird, dauert es
+584 942 417 355 Jahre
+Das Universum ist  12 000 000 000 Jahre alt.
+Die Erde ist 4 500 000 000 Jahren alt. 
+Muss man nachdenken. 
